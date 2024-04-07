@@ -29,11 +29,13 @@ task pickNextTask() {
 }
 
 void schedule() {
-	task t = pickNextTask();
 	while (tasks.size() != 0) {
-		run(t, t.burst);
-	}
-	//remove task t from tasks
-	tasks.erase(std::remove(tasks.begin(), tasks.end(), t), tasks.end());
+		task t = pickNextTask();
 
+		//run task t for t.burst time units
+		run(t, t.burst);
+
+		//remove task t from tasks
+		tasks.erase(std::remove(tasks.begin(), tasks.end(), t), tasks.end());
+	}
 }
