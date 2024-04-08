@@ -129,6 +129,7 @@
   <ItemGroup>
     <ClInclude Include="cpu.h" />
     <ClInclude Include="scheduler.h" />
+    <ClInclude Include="schedule_rr.h" />
     <ClInclude Include="schedule_sjf.h" />
     <ClInclude Include="task.h" />
   </ItemGroup>
