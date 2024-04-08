@@ -129,12 +129,13 @@
   <ItemGroup>
     <ClInclude Include="cpu.h" />
     <ClInclude Include="scheduler.h" />
+    <ClInclude Include="schedule_sjf.h" />
     <ClInclude Include="task.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="cpu.cpp" />
     <ClCompile Include="rr.cpp" />
-    <ClCompile Include="sjf.cpp" />
+    <ClCompile Include="schedule_sjf.cpp" />
     <ClCompile Include="task.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
