@@ -135,7 +135,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="cpu.cpp" />
-    <ClCompile Include="rr.cpp" />
+    <ClCompile Include="schedule_rr.cpp" />
     <ClCompile Include="schedule_sjf.cpp" />
     <ClCompile Include="task.cpp" />
   </ItemGroup>
