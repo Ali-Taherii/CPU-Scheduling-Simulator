@@ -2,7 +2,8 @@
 
 #include "scheduler.h"
 
-class FCFS : public Scheduler {
+class Priority : public Scheduler {
 public:
+    void addTask(const Task& task);
     void scheduleTasks(CPU& cpu) override;
 };
