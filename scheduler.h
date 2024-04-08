@@ -1,6 +1,7 @@
 #pragma once
 
 #include "task.h"
+#include "cpu.h"
 
 #include <queue>
 
@@ -10,5 +11,5 @@ private:
 
 public:
     void addTask(const Task& task);
-    void scheduleTasks();
+    void scheduleTasks(CPU cpu);
 };
