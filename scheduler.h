@@ -6,10 +6,10 @@
 #include <queue>
 
 class Scheduler {
-private:
+protected:
     std::queue<Task> taskQueue;
 
 public:
     void addTask(const Task& task);
-    void scheduleTasks(CPU cpu);
+    virtual void scheduleTasks(CPU& cpu) = 0; // Pure virtual function
 };

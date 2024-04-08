@@ -1,16 +1,16 @@
-#include "scheduler.h"
-#include "cpu.h"
-#include <iostream>
+#include "schedule_fcfs.h"
 
-void Scheduler::addTask(const Task& task) {
+
+void Scheduler::addTask(const Task& task){
     taskQueue.push(task);
 }
 
-void Scheduler::scheduleTasks(CPU cpu) {
+
+void FCFS::scheduleTasks(CPU& cpu) {
     while (!taskQueue.empty()) {
         Task currentTask = taskQueue.front();
         taskQueue.pop();
-
         cpu.runTask(currentTask);
     }
 }
+
