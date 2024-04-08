@@ -12,8 +12,8 @@ void RR::scheduleTasks(CPU& cpu) {
         Task currentTask = taskQueue.front();
         cpu.runTask(currentTask);
         taskQueue.pop();
-        if (currentTask.getBurst() > 10) {
-            currentTask.setRemainingBurst(currentTask.getBurst() - 10);
+        if (currentTask.getRemainingBurst() > 10) {
+            currentTask.setRemainingBurst(currentTask.getRemainingBurst() - 10);
             taskQueue.push(currentTask);
         }
     }

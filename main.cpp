@@ -1,6 +1,7 @@
 #include <iostream>
 #include "task.h"
 #include "schedule_sjf.h"
+#include "schedule_rr.h"
 #include "cpu.h"
 
 int main() {
@@ -16,18 +17,18 @@ int main() {
     CPU cpu;
 
     // Create a FCFS scheduler
-    SJF sjf_scheduler;
+    RR rr_scheduler;
 
     // Add tasks to the scheduler
-    sjf_scheduler.addTask(task1);
-    sjf_scheduler.addTask(task2);
-    sjf_scheduler.addTask(task3);
-    sjf_scheduler.addTask(task4);
-    sjf_scheduler.addTask(task5);
-    sjf_scheduler.addTask(task6);
+    rr_scheduler.addTask(task1);
+    rr_scheduler.addTask(task2);
+    rr_scheduler.addTask(task3);
+    rr_scheduler.addTask(task4);
+    rr_scheduler.addTask(task5);
+    rr_scheduler.addTask(task6);
 
     // Schedule and execute tasks
-    sjf_scheduler.scheduleTasks(cpu);
+    rr_scheduler.scheduleTasks(cpu);
 
     return 0;
 }
