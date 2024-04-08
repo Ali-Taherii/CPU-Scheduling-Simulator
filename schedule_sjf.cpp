@@ -14,6 +14,7 @@ void SJF::scheduleTasks(CPU& cpu) {
         for (int i = 0; i < taskQueue.size(); i++) {
             if (shortestJob.getBurst() > taskQueue.front().getBurst()) {
                 shortestJob = taskQueue.front();
+                break;
             }
             taskQueue.push(taskQueue.front());
             taskQueue.pop();
