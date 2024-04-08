@@ -135,6 +135,7 @@
     <ClCompile Include="cpu.cpp" />
     <ClCompile Include="rr.cpp" />
     <ClCompile Include="sjf.cpp" />
+    <ClCompile Include="task.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

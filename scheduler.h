@@ -1,12 +1,15 @@
 #pragma once
-#include <string>
-using namespace std;
 
-#define MIN_PRIORITY 1
-#define MAX_PRIORITY 10
+#include "task.h"
+#include "cpu.h"
 
+#include <queue>
 
-void add(string name, int priority, int burst);
+class Scheduler {
+protected:
+    std::queue<Task> taskQueue;
 
-
-void schedule();
+public:
+    void addTask(const Task& task);
+    virtual void scheduleTasks(CPU& cpu) = 0; // Pure virtual function
+};
