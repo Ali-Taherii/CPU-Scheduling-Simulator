@@ -1,12 +1,14 @@
 #pragma once
-#include <string>
-using namespace std;
 
-#define MIN_PRIORITY 1
-#define MAX_PRIORITY 10
+#include "task.h"
 
+#include <queue>
 
-void add(string name, int priority, int burst);
+class Scheduler {
+private:
+    std::queue<Task> taskQueue;
 
-
-void schedule();
+public:
+    void addTask(const Task& task);
+    void scheduleTasks();
+};

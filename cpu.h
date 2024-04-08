@@ -3,4 +3,4 @@
 #include <stdio.h>
 #include "task.h"
 
-void run(task t, int slice);
+void run(Task t, int slice);
