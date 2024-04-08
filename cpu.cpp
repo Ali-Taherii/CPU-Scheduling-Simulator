@@ -2,5 +2,5 @@
 #include <iostream>
 
 void CPU::runTask(const Task& task) {
-    std::cout << "Running task: " << task.getName() << " with priority: " << task.getPriority() << " and burst: " << task.getBurst() << std::endl;
+    std::cout << "Running task: " << task.getName() << " with priority: " << task.getPriority() << " and burst: " << task.getRemainingBurst() << std::endl;
 }
