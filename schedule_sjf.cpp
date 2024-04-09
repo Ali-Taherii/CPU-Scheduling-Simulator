@@ -2,25 +2,25 @@
 
 
 void Scheduler::addTask(const Task& task) {
-    taskQueue.push(task);
+    taskList.push_back(task);
 }
 
 
 void SJF::scheduleTasks(CPU& cpu) {
-    while (!taskQueue.empty()) {
+    while (!taskList.empty()) {
         //Iterate through the queue to find the shortest job (burst time), then run it and remove it from the queue
 
-        Task shortestJob = taskQueue.front();
-        for (int i = 0; i < taskQueue.size(); i++) {
-            if (shortestJob.getBurst() > taskQueue.front().getBurst()) {
-                shortestJob = taskQueue.front();
+        Task shortestJob = taskList.front();
+        for (int i = 0; i < taskList.size(); i++) {
+            if (shortestJob.getBurst() > taskList.front().getBurst()) {
+                shortestJob = taskList.front();
                 break;
             }
-            taskQueue.push(taskQueue.front());
-            taskQueue.pop();
+            taskList.push_back(taskList.front());
+            taskList.pop_front();
         }
         cpu.runTask(shortestJob);
-        taskQueue.pop();
+        taskList.pop_front();
         
         
 

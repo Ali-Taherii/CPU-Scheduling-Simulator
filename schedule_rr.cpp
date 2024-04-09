@@ -2,19 +2,19 @@
 
 
 void Scheduler::addTask(const Task& task) {
-    taskQueue.push(task);
+    taskList.push_front(task);
 }
 
 
 void RR::scheduleTasks(CPU& cpu) {
-    while (!taskQueue.empty()) {
+    while (!taskList.empty()) {
         //Execute the tasks in a round-robin fashion with a time slice of 10
-        Task currentTask = taskQueue.front();
+        Task currentTask = taskList.front();
         cpu.runTask(currentTask);
-        taskQueue.pop();
+        taskList.pop_front();
         if (currentTask.getRemainingBurst() > 10) {
             currentTask.setRemainingBurst(currentTask.getRemainingBurst() - 10);
-            taskQueue.push(currentTask);
+            taskList.push_back(currentTask);
         }
     }
 }

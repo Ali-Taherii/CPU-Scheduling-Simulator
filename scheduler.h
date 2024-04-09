@@ -3,11 +3,11 @@
 #include "task.h"
 #include "cpu.h"
 
-#include <queue>
+#include <list>
 
 class Scheduler {
 protected:
-    std::queue<Task> taskQueue;
+    std::list<Task> taskList;
 
 public:
     void addTask(const Task& task);
