@@ -1,7 +1,7 @@
 #include "Task.h"
 
 // Constructor
-Task::Task(const std::string& name, int priority, int burst)
+Task::Task(const std::string& name,const int priority,const int burst)
     : name(name), priority(priority), burst(burst), remaining_burst(burst) {}
 
 // Accessors

@@ -11,7 +11,7 @@ private:
 
 public:
     // Constructor
-    Task(const std::string& name, int priority, int burst);
+    Task(const std::string& name, const int priority,const int burst);
 
     // Accessors
     std::string getName() const;
