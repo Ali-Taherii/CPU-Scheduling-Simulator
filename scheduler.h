@@ -10,6 +10,6 @@ protected:
     std::list<Task> taskList;
 
 public:
-    void addTask(const Task& task);
+    virtual void addTask(const Task& task);
     virtual void scheduleTasks(CPU& cpu) = 0; // Pure virtual function
 };
