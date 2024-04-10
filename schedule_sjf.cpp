@@ -1,7 +1,7 @@
 #include "schedule_sjf.h"
 
 
-void Scheduler::addTask(const Task& task) {
+void SJF::addTask(const Task& task) {
     taskList.push_back(task);
 }
 
