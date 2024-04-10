@@ -1,10 +1,11 @@
 #include "schedule_rr.h"
 
+RR::RR(int quantum) : timeQuantum(quantum) {}
+
 
 void Scheduler::addTask(const Task& task) {
     taskList.push_front(task);
 }
-
 
 void RR::scheduleTasks(CPU& cpu) {
     while (!taskList.empty()) {
@@ -12,8 +13,8 @@ void RR::scheduleTasks(CPU& cpu) {
         Task currentTask = taskList.front();
         cpu.runTask(currentTask);
         taskList.pop_front();
-        if (currentTask.getRemainingBurst() > 10) {
-            currentTask.setRemainingBurst(currentTask.getRemainingBurst() - 10);
+        if (currentTask.getRemainingBurst() > timeQuantum) {
+            currentTask.setRemainingBurst(currentTask.getRemainingBurst() - timeQuantum);
             taskList.push_back(currentTask);
         }
     }

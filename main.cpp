@@ -17,7 +17,7 @@ int main() {
     CPU cpu;
 
     // Create a FCFS scheduler
-    RR rr_scheduler;
+    RR rr_scheduler(10);
 
     // Add tasks to the scheduler
     rr_scheduler.addTask(task1);
