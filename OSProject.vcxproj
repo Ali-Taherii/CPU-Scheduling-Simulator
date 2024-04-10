@@ -131,6 +131,7 @@
     <ClInclude Include="scheduler.h" />
     <ClInclude Include="schedule_fcfs.h" />
     <ClInclude Include="schedule_priority.h" />
+    <ClInclude Include="schedule_priority_rr.h" />
     <ClInclude Include="task.h" />
   </ItemGroup>
   <ItemGroup>
@@ -138,6 +139,7 @@
     <ClCompile Include="schedule_fcfs.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="schedule_priority.cpp" />
+    <ClCompile Include="schedule_priority_rr.cpp" />
     <ClCompile Include="task.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
