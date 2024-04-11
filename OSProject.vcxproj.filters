@@ -33,6 +33,12 @@
     <ClInclude Include="schedule_priority_rr.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="priority_task.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="nonpriority_task.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="cpu.cpp">
@@ -51,6 +57,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="schedule_priority_rr.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="priority_task.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="nonpriority_task.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

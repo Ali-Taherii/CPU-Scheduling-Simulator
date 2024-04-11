@@ -3,22 +3,23 @@
 #include <string>
 
 class Task {
-private:
-    std::string name;          
-    int priority;              
-    int burst;                 
-    int remaining_burst;       
+protected:
+    std::string name;
+    int burst;
+    int remaining_burst;
 
 public:
     // Constructor
-    Task(const std::string& name, int priority, int burst);
+    Task(const std::string& name, int burst);
 
     // Accessors
     std::string getName() const;
-    int getPriority() const;
     int getBurst() const;
     int getRemainingBurst() const;
 
-    // Modifiers
+    // Modifier
     void setRemainingBurst(int remaining);
+
+    // Pure virtual function
+    virtual void execute() = 0;
 };

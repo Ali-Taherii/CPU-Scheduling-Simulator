@@ -4,6 +4,7 @@
 
 class Priority : public Scheduler {
 public:
-    void addTask(const Task& task) override;
+    void addTask(const NonPriorityTask& task) override;
+    void addTask(const PriorityTask& task) override;
     void scheduleTasks(CPU& cpu) override;
 };

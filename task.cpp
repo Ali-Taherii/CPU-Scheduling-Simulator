@@ -1,16 +1,12 @@
-#include "Task.h"
+#include "task.h"
 
 // Constructor
-Task::Task(const std::string& name, int priority, int burst)
-    : name(name), priority(priority), burst(burst), remaining_burst(burst) {}
+Task::Task(const std::string& name, int burst)
+    : name(name), burst(burst), remaining_burst(burst) {}
 
 // Accessors
 std::string Task::getName() const {
     return name;
-}
-
-int Task::getPriority() const {
-    return priority;
 }
 
 int Task::getBurst() const {

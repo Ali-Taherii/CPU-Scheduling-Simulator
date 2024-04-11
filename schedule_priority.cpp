@@ -1,19 +1,21 @@
 #include "schedule_priority.h"
 
+void Priority::addTask(const NonPriorityTask& task) {}
 
-void Priority::addTask(const Task& task) {
+void Priority::addTask(const PriorityTask& task) {
     // Find the position to insert the task based on priority
-    auto tempTask = taskList.begin();
-    while (tempTask != taskList.end() && tempTask->getPriority() < task.getPriority()) {
+    auto tempTask = p_taskList.begin();
+    while (tempTask != p_taskList.end() && tempTask->getPriority() < task.getPriority()) {
         ++tempTask;
     }
-    taskList.insert(tempTask, task); // Insert the task at the correct position
+    p_taskList.insert(tempTask, task); // Insert the task at the correct position
 }
 
 void Priority::scheduleTasks(CPU& cpu) {
-    while (!taskList.empty()) {
-        Task currentTask = taskList.front();
+    while (!p_taskList.empty()) {
+        PriorityTask currentTask = p_taskList.front();
+        currentTask.setRemainingBurst(0);
         cpu.runTask(currentTask);
-        taskList.pop_front();
+        p_taskList.pop_front();
     }
 }

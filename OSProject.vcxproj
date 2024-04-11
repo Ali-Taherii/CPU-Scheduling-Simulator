@@ -128,6 +128,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="cpu.h" />
+    <ClInclude Include="nonpriority_task.h" />
+    <ClInclude Include="priority_task.h" />
     <ClInclude Include="scheduler.h" />
     <ClInclude Include="schedule_fcfs.h" />
     <ClInclude Include="schedule_priority.h" />
@@ -136,6 +138,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="cpu.cpp" />
+    <ClCompile Include="nonpriority_task.cpp" />
+    <ClCompile Include="priority_task.cpp" />
     <ClCompile Include="schedule_fcfs.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="schedule_priority.cpp" />

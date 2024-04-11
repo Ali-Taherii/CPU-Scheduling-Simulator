@@ -2,22 +2,25 @@
 
 PriorityRoundRobin::PriorityRoundRobin(int quantum) : timeQuantum(quantum) {}
 
-void PriorityRoundRobin::addTask(const Task& task) {
+void PriorityRoundRobin::addTask(const NonPriorityTask& task) {}
+
+void PriorityRoundRobin::addTask(const PriorityTask& task) {
     // Find the position to insert the task based on priority
-    auto tempTask = taskList.begin();
-    while (tempTask != taskList.end() && tempTask->getPriority() < task.getPriority()) {
+    auto tempTask = p_taskList.begin();
+    while (tempTask != p_taskList.end() && tempTask->getPriority() < task.getPriority()) {
         ++tempTask;
     }
-    taskList.insert(tempTask, task); // Insert the task at the correct position
+    p_taskList.insert(tempTask, task); // Insert the task at the correct position
 }
 
 void PriorityRoundRobin::scheduleTasks(CPU& cpu) {
-    while (!taskList.empty()) {
-        Task currentTask = taskList.front();
+    while (!p_taskList.empty()) {
+        PriorityTask currentTask = p_taskList.front();
 
         if (currentTask.getRemainingBurst() <= timeQuantum) {
+            currentTask.setRemainingBurst(0);
             cpu.runTask(currentTask);
-            taskList.pop_front();
+            p_taskList.pop_front();
         }
 
         else {
@@ -25,13 +28,13 @@ void PriorityRoundRobin::scheduleTasks(CPU& cpu) {
             // Decrement remaining burst time for the executed task
             int remainingBurst = currentTask.getRemainingBurst() - timeQuantum;
 
-            // Run for the time quantum
-            currentTask.setRemainingBurst(timeQuantum);
-            cpu.runTask(currentTask);
-            taskList.pop_front();
-
             // Fix the remaining burst time
             currentTask.setRemainingBurst(remainingBurst);
+
+            // Run for the time quantum
+            cpu.runTask(currentTask);
+            p_taskList.pop_front();
+
 
             // Add the task back to the end of the list if it still has burst time remaining
             addTask(currentTask);
