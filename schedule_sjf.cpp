@@ -9,18 +9,18 @@ void SJF::addTask(const PriorityTask& task) {}
 
 void SJF::scheduleTasks(CPU& cpu) {
     while (!np_taskList.empty()) {
-        //Iterate through the queue to find the shortest job (burst time), then run it and remove it from the queue
+        //Execute the tasks in a shortest job first fashion
+        NonPriorityTask currentTask = np_taskList.front();
+        auto it = np_taskList.begin();
+        for (auto i = np_taskList.begin(); i != np_taskList.end(); i++) {
+			if (i->getBurst() < currentTask.getBurst()) {
+				currentTask = *i;
+				it = i;
+			}
+		}
+        cpu.runTask(currentTask);
+		np_taskList.erase(it);
+	}
 
-        NonPriorityTask shortestJob = np_taskList.front();
-        for (int i = 0; i < np_taskList.size(); i++) {
-            if (shortestJob.getBurst() > np_taskList.front().getBurst()) {
-                shortestJob = np_taskList.front();
-                break;
-            }
-            np_taskList.push_back(np_taskList.front());
-            np_taskList.pop_front();
-        }
-        cpu.runTask(shortestJob);
-        np_taskList.pop_front();
-    }
+        
 }
