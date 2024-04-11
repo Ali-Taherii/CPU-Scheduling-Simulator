@@ -1,6 +1,9 @@
 #include "cpu.h"
-#include <iostream>
 
-void CPU::runTask(const Task& task) {
-    std::cout << "Running task: " << task.getName() << " with priority: " << task.getPriority() << " and burst: " << task.getRemainingBurst() << std::endl;
+void CPU::runTask(PriorityTask& task) {
+	task.execute();
+}
+
+void CPU::runTask(NonPriorityTask& task) {
+	task.execute();
 }

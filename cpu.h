@@ -1,8 +1,10 @@
 #pragma once
 
-#include "task.h"
+#include "priority_task.h"
+#include "nonpriority_task.h"
 
 class CPU {
 public:
-    void runTask(const Task& task);
+    void runTask(PriorityTask& task);
+    void runTask(NonPriorityTask& task);
 };
