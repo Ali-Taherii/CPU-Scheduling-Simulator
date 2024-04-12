@@ -1,6 +1,10 @@
 #pragma once
 
-#include <stdio.h>
-#include "task.h"
+#include "priority_task.h"
+#include "nonpriority_task.h"
 
-void run(task t, int slice);
+class CPU {
+public:
+    void runTask(PriorityTask& task);
+    void runTask(NonPriorityTask& task);
+};
